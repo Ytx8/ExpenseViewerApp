@@ -4,7 +4,6 @@
 //
 //  Created by Yogesh Tandulkar on 15/11/25.
 //
-
 #import "ExpenseItem.h"
 
 @implementation ExpenseItem
@@ -16,7 +15,7 @@
         _title = dict[@"title"];
         _amount = [dict[@"amount"] floatValue];
 
-        // Convert date string → NSDate
+        // Convert date string to NSDate
         NSString *dateString = dict[@"date"];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";

@@ -8,7 +8,16 @@
 import Foundation
 
 class ViewModel: ObservableObject {
-    @Published var expensesData: [ExpenseData] = []
+    @Published private(set) var expensesData: [ExpenseData] = []
+    @Published var sortOrder: SortOrder = .ascending
+    var sortedExpenseData: [ExpenseData] {
+        switch sortOrder {
+        case .ascending:
+            expensesData.sorted { $0.date < $1.date }
+        case .descending:
+            expensesData.sorted { $0.date > $1.date }
+        }
+    }
     
     init() {
         loadData()
@@ -38,4 +47,9 @@ struct ExpenseData {
     let title: String
     let amount: Float
     let date: Date
+}
+
+enum SortOrder {
+    case ascending
+    case descending
 }

@@ -34,7 +34,7 @@
             return;
         }
 
-        // Transform JSON → model objects
+        // Transform JSON to model objects
         NSMutableArray *items = [NSMutableArray array];
         for (NSDictionary *dict in jsonArray) {
             ExpenseItem *item = [[ExpenseItem alloc] initWithDictionary:dict];
